@@ -9,3 +9,5 @@ dist/
 *.swp
 *.tmp
 *.tmp.*
+index.html
+images/

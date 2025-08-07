@@ -22,9 +22,19 @@ export default [
         icon: letterSpacingIcon,
     },
     {
-        label: 'Dyslexia Font',
-        key: 'readable-font',
+        label: 'Accessible Fonts',
+        key: 'accessible-font',
         icon: dyslexiaFontIcon,
+        type: 'select',
+        options: [
+            { value: 'default', label: 'Default Font' },
+            { value: 'opendyslexic', label: 'OpenDyslexic' },
+            { value: 'comic-sans', label: 'Comic Sans' },
+            { value: 'arial', label: 'Arial' },
+            { value: 'verdana', label: 'Verdana' },
+            { value: 'tahoma', label: 'Tahoma' },
+            { value: 'trebuchet', label: 'Trebuchet MS' }
+        ]
     },
     {
         label: 'Highlight Links',

@@ -5,7 +5,6 @@ function getTextFromNode(node) {
 }
 
 function getFullSentence(node: Node): string {
-  return;
   if (!node) {
     return '';
   }
@@ -49,7 +48,6 @@ function getFullSentence(node: Node): string {
 
 
 function speakText(text) {
-  return;
   if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
     if (speechSynthesis.speaking) {
       speechSynthesis.cancel();
@@ -66,23 +64,44 @@ function speakText(text) {
 
 
 export default function screenReader(enable = false) {
-  return;
   if (enable) {
     (window as any).__asw__onClickScreenReader = (event) => {
       var clickedElement = event.target;
 
       if (!["BODY", "HEAD", "HTML"].includes(clickedElement.nodeName)) {
         var selectedText = getFullSentence(clickedElement);
-
         speakText(selectedText);
       }
     }
 
     document.addEventListener('click', (window as any).__asw__onClickScreenReader);
+    addScreenReaderSupport();
   } else {
     if ((window as any).__asw__onClickScreenReader) {
       document.removeEventListener('click', (window as any).__asw__onClickScreenReader);
       delete (window as any).__asw__onClickScreenReader;
     }
+    removeScreenReaderSupport();
   }
+}
+
+function addScreenReaderSupport() {
+  // Add ARIA labels to unlabeled elements
+  document.querySelectorAll('img:not([alt])').forEach((img, index) => {
+    img.setAttribute('alt', `Image ${index + 1}`);
+  });
+  
+  // Add skip links
+  const skipLink = document.createElement('a');
+  skipLink.href = '#main';
+  skipLink.textContent = 'Skip to main content';
+  skipLink.style.cssText = 'position:absolute;top:-40px;left:6px;background:#000;color:#fff;padding:8px;text-decoration:none;z-index:999999';
+  skipLink.addEventListener('focus', () => skipLink.style.top = '6px');
+  skipLink.addEventListener('blur', () => skipLink.style.top = '-40px');
+  document.body.insertBefore(skipLink, document.body.firstChild);
+}
+
+function removeScreenReaderSupport() {
+  // Remove added skip links
+  document.querySelectorAll('a[href="#main"]').forEach(link => link.remove());
 }

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Widget Test Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .low-contrast { color: #999; background: #f0f0f0; }
+        .demo-animation {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-8">
+    <header class="mb-8">
+        <h1 class="text-4xl font-bold text-blue-600 mb-4">Accessibility Widget Test Page</h1>
+        <p class="text-lg text-gray-700">Use the accessibility widget to improve your browsing experience</p>
+        <nav class="mt-4">
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-blue-500 hover:underline">Home</a></li>
+                <li><a href="#" class="text-purple-500 hover:underline">About</a></li>
+                <li><a href="#" class="text-green-500 hover:underline">Services</a></li>
+                <li><a href="#" class="text-red-500 hover:underline">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold mb-4">Text Content</h2>
+            <p class="mb-4">This is normal text that will be affected by font size adjustments from the accessibility widget.</p>
+            <p class="text-sm mb-4">This is smaller text to test readability improvements.</p>
+            <p class="low-contrast mb-4">This text has low contrast and will benefit from contrast adjustments.</p>
+            <p class="text-yellow-500 mb-4">This yellow text may be hard to read and can be improved with high contrast mode.</p>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold mb-4">Images</h2>
+            <p class="mb-4">These images can be hidden using the accessibility widget:</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <img src="https://via.placeholder.com/200x150/FF6B6B/FFFFFF?text=Image+1" alt="Sample image 1" class="rounded">
+                <img src="https://via.placeholder.com/200x150/4ECDC4/FFFFFF?text=Image+2" alt="Sample image 2" class="rounded">
+                <img src="https://via.placeholder.com/200x150/45B7D1/FFFFFF?text=Image+3" alt="Sample image 3" class="rounded">
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold mb-4">Interactive Elements</h2>
+            <p class="mb-4">Test cursor size changes on these elements:</p>
+            <div class="space-y-4">
+                <button class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Primary Button</button>
+                <button class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600">Secondary Button</button>
+                <input type="text" placeholder="Test input field" class="border border-gray-300 px-4 py-2 rounded w-full max-w-md">
+                <select class="border border-gray-300 px-4 py-2 rounded">
+                    <option>Select an option</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold mb-4">Animations</h2>
+            <p class="mb-4">These animations can be disabled using the widget:</p>
+            <div class="flex space-x-4">
+                <div class="w-16 h-16 bg-blue-500 rounded demo-animation"></div>
+                <div class="w-16 h-16 bg-green-500 rounded demo-animation" style="animation-delay: 0.5s;"></div>
+                <div class="w-16 h-16 bg-red-500 rounded demo-animation" style="animation-delay: 1s;"></div>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold mb-4">Reading Content</h2>
+            <p class="mb-4">Use the reading guide to help follow this text:</p>
+            <div class="prose max-w-none">
+                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                <p class="mb-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="mb-4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-semibold mb-4">Form Elements</h2>
+            <form class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" id="name" class="border border-gray-300 px-4 py-2 rounded w-full">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" class="border border-gray-300 px-4 py-2 rounded w-full">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea id="message" rows="4" class="border border-gray-300 px-4 py-2 rounded w-full"></textarea>
+                </div>
+                <button type="submit" class="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="mt-12 text-center text-gray-600">
+        <p>Use the accessibility widget (blue button) in the top-right corner to customize your experience</p>
+    </footer>
+    <script src="https://website-widgets.pages.dev/dist/sienna.min.js" defer></script>
+    <!-- <script>
+        // Accessibility Widget
+        class AccessibilityWidget {
+            constructor() {
+                this.settings = {
+                    fontSize: 100,
+                    contrast: 'normal',
+                    cursorSize: 'normal',
+                    highlightLinks: false,
+                    hideImages: false,
+                    readingGuide: false,
+                    dyslexiaFont: false,
+                    animations: true
+                };
+                this.init();
+            }
+
+            init() {
+                this.createWidget();
+                this.injectStyles();
+                this.setupEventListeners();
+            }
+
+            createWidget() {
+                const widget = document.createElement('div');
+                widget.id = 'a11y-widget';
+                widget.innerHTML = `
+                    <button id="a11y-toggle" class="a11y-toggle" aria-label="Open accessibility menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 5.5C14.8 4.1 13.6 3 12.1 3C10.6 3 9.4 4.1 9.2 5.5L3 7V9L9.2 7.5V10.5L3 12V14L9.2 12.5V19H10.8V12.5L17 14V12L10.8 10.5V7.5L17 9H21Z"/>
+                        </svg>
+                    </button>
+                    <div id="a11y-panel" class="a11y-panel">
+                        <div class="a11y-header">
+                            <h2>Accessibility</h2>
+                            <button id="a11y-close" aria-label="Close accessibility menu">×</button>
+                        </div>
+                        <div class="a11y-content">
+                            <div class="a11y-section">
+                                <h3>Text Size</h3>
+                                <div class="a11y-controls">
+                                    <button class="a11y-btn" data-action="fontSize" data-value="decrease">A-</button>
+                                    <span id="font-size-display">100%</span>
+                                    <button class="a11y-btn" data-action="fontSize" data-value="increase">A+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="a11y-section">
+                                <h3>Contrast</h3>
+                                <div class="a11y-controls">
+                                    <button class="a11y-btn active" data-action="contrast" data-value="normal">Normal</button>
+                                    <button class="a11y-btn" data-action="contrast" data-value="high">High</button>
+                                    <button class="a11y-btn" data-action="contrast" data-value="dark">Dark</button>
+                                </div>
+                            </div>
+                            
+                            <div class="a11y-section">
+                                <h3>Cursor</h3>
+                                <div class="a11y-controls">
+                                    <button class="a11y-btn active" data-action="cursor" data-value="normal">Normal</button>
+                                    <button class="a11y-btn" data-action="cursor" data-value="large">Large</button>
+                                    <button class="a11y-btn" data-action="cursor" data-value="extra-large">Extra Large</button>
+                                </div>
+                            </div>
+                            
+                            <div class="a11y-section">
+                                <h3>Visual Aids</h3>
+                                <div class="a11y-controls">
+                                    <label class="a11y-checkbox">
+                                        <input type="checkbox" data-action="highlightLinks">
+                                        <span>Highlight Links</span>
+                                    </label>
+                                    <label class="a11y-checkbox">
+                                        <input type="checkbox" data-action="hideImages">
+                                        <span>Hide Images</span>
+                                    </label>
+                                    <label class="a11y-checkbox">
+                                        <input type="checkbox" data-action="readingGuide">
+                                        <span>Reading Guide</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="a11y-section">
+                                <h3>Reading</h3>
+                                <div class="a11y-controls">
+                                    <label class="a11y-checkbox">
+                                        <input type="checkbox" data-action="dyslexiaFont">
+                                        <span>Dyslexia Friendly Font</span>
+                                    </label>
+                                    <label class="a11y-checkbox">
+                                        <input type="checkbox" data-action="animations" checked>
+                                        <span>Disable Animations</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="a11y-section">
+                                <button class="a11y-reset" data-action="reset">Reset All</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(widget);
+            }
+
+            injectStyles() {
+                const style = document.createElement('style');
+                style.textContent = `
+                    #a11y-widget {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        z-index: 999999;
+                        font-family: Arial, sans-serif;
+                    }
+                    
+                    .a11y-toggle {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background: #007cba;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .a11y-toggle:hover {
+                        background: #005a87;
+                        transform: scale(1.1);
+                    }
+                    
+                    .a11y-panel {
+                        position: absolute;
+                        top: 60px;
+                        right: 0;
+                        width: 300px;
+                        background: white;
+                        border: 1px solid #ddd;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+                        display: none;
+                        max-height: 80vh;
+                        overflow-y: auto;
+                    }
+                    
+                    .a11y-panel.active {
+                        display: block;
+                    }
+                    
+                    .a11y-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 15px 20px;
+                        border-bottom: 1px solid #eee;
+                        background: #f8f9fa;
+                    }
+                    
+                    .a11y-header h2 {
+                        margin: 0;
+                        font-size: 18px;
+                        color: #333;
+                    }
+                    
+                    #a11y-close {
+                        background: none;
+                        border: none;
+                        font-size: 24px;
+                        cursor: pointer;
+                        color: #666;
+                        padding: 0;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    
+                    .a11y-content {
+                        padding: 20px;
+                    }
+                    
+                    .a11y-section {
+                        margin-bottom: 20px;
+                    }
+                    
+                    .a11y-section h3 {
+                        margin: 0 0 10px 0;
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #333;
+                    }
+                    
+                    .a11y-controls {
+                        display: flex;
+                        gap: 8px;
+                        flex-wrap: wrap;
+                        align-items: center;
+                    }
+                    
+                    .a11y-btn {
+                        padding: 8px 12px;
+                        border: 1px solid #ddd;
+                        background: white;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 12px;
+                        transition: all 0.2s ease;
+                    }
+                    
+                    .a11y-btn:hover {
+                        background: #f0f0f0;
+                    }
+                    
+                    .a11y-btn.active {
+                        background: #007cba;
+                        color: white;
+                        border-color: #007cba;
+                    }
+                    
+                    .a11y-checkbox {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        cursor: pointer;
+                        font-size: 12px;
+                        width: 100%;
+                        margin-bottom: 8px;
+                    }
+                    
+                    .a11y-checkbox input {
+                        margin: 0;
+                    }
+                    
+                    .a11y-reset {
+                        width: 100%;
+                        padding: 10px;
+                        background: #dc3545;
+                        color: white;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        font-size: 14px;
+                    }
+                    
+                    .a11y-reset:hover {
+                        background: #c82333;
+                    }
+                    
+                    #font-size-display {
+                        font-size: 12px;
+                        color: #666;
+                        min-width: 40px;
+                        text-align: center;
+                    }
+                    
+                    .a11y-high-contrast {
+                        filter: contrast(150%) !important;
+                    }
+                    
+                    .a11y-dark-mode {
+                        filter: invert(1) hue-rotate(180deg) !important;
+                    }
+                    
+                    .a11y-highlight-links a {
+                        background: yellow !important;
+                        color: black !important;
+                        text-decoration: underline !important;
+                        padding: 2px 4px !important;
+                        border-radius: 2px !important;
+                    }
+                    
+                    .a11y-hide-images img {
+                        display: none !important;
+                    }
+                    
+                    .a11y-dyslexia-font * {
+                        font-family: 'Comic Sans MS', cursive !important;
+                    }
+                    
+                    .a11y-no-animations * {
+                        animation-duration: 0.01ms !important;
+                        animation-iteration-count: 1 !important;
+                        transition-duration: 0.01ms !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            setupEventListeners() {
+                const toggle = document.getElementById('a11y-toggle');
+                const panel = document.getElementById('a11y-panel');
+                const close = document.getElementById('a11y-close');
+
+                toggle.addEventListener('click', () => this.togglePanel());
+                close.addEventListener('click', () => this.closePanel());
+                
+                panel.addEventListener('click', (e) => {
+                    const action = e.target.dataset.action;
+                    const value = e.target.dataset.value;
+                    
+                    if (action) {
+                        this.handleAction(action, value, e.target);
+                    }
+                });
+
+                panel.addEventListener('change', (e) => {
+                    const action = e.target.dataset.action;
+                    if (action) {
+                        this.handleAction(action, e.target.checked, e.target);
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('#a11y-widget')) {
+                        this.closePanel();
+                    }
+                });
+            }
+
+            togglePanel() {
+                const panel = document.getElementById('a11y-panel');
+                panel.classList.toggle('active');
+            }
+
+            closePanel() {
+                const panel = document.getElementById('a11y-panel');
+                panel.classList.remove('active');
+            }
+
+            handleAction(action, value, element) {
+                switch (action) {
+                    case 'fontSize':
+                        this.adjustFontSize(value);
+                        break;
+                    case 'contrast':
+                        this.setContrast(value);
+                        this.updateActiveButton(element);
+                        break;
+                    case 'cursor':
+                        this.setCursor(value);
+                        this.updateActiveButton(element);
+                        break;
+                    case 'highlightLinks':
+                        this.toggleHighlightLinks(value);
+                        break;
+                    case 'hideImages':
+                        this.toggleHideImages(value);
+                        break;
+                    case 'readingGuide':
+                        this.toggleReadingGuide(value);
+                        break;
+                    case 'dyslexiaFont':
+                        this.toggleDyslexiaFont(value);
+                        break;
+                    case 'animations':
+                        this.toggleAnimations(!value);
+                        break;
+                    case 'reset':
+                        this.resetAll();
+                        break;
+                }
+            }
+
+            adjustFontSize(direction) {
+                if (direction === 'increase' && this.settings.fontSize < 200) {
+                    this.settings.fontSize += 10;
+                } else if (direction === 'decrease' && this.settings.fontSize > 50) {
+                    this.settings.fontSize -= 10;
+                }
+                
+                document.documentElement.style.fontSize = this.settings.fontSize + '%';
+                document.getElementById('font-size-display').textContent = this.settings.fontSize + '%';
+            }
+
+            setContrast(mode) {
+                document.body.classList.remove('a11y-high-contrast', 'a11y-dark-mode');
+                
+                if (mode === 'high') {
+                    document.body.classList.add('a11y-high-contrast');
+                } else if (mode === 'dark') {
+                    document.body.classList.add('a11y-dark-mode');
+                }
+                
+                this.settings.contrast = mode;
+            }
+
+            setCursor(size) {
+                this.settings.cursorSize = size;
+            }
+
+            toggleHighlightLinks(enabled) {
+                document.body.classList.toggle('a11y-highlight-links', enabled);
+                this.settings.highlightLinks = enabled;
+            }
+
+            toggleHideImages(enabled) {
+                document.body.classList.toggle('a11y-hide-images', enabled);
+                this.settings.hideImages = enabled;
+            }
+
+            toggleReadingGuide(enabled) {
+                this.settings.readingGuide = enabled;
+            }
+
+            toggleDyslexiaFont(enabled) {
+                document.body.classList.toggle('a11y-dyslexia-font', enabled);
+                this.settings.dyslexiaFont = enabled;
+            }
+
+            toggleAnimations(enabled) {
+                document.body.classList.toggle('a11y-no-animations', enabled);
+                this.settings.animations = !enabled;
+            }
+
+            updateActiveButton(clickedButton) {
+                const siblings = clickedButton.parentElement.querySelectorAll('.a11y-btn');
+                siblings.forEach(btn => btn.classList.remove('active'));
+                clickedButton.classList.add('active');
+            }
+
+            resetAll() {
+                this.settings = {
+                    fontSize: 100,
+                    contrast: 'normal',
+                    cursorSize: 'normal',
+                    highlightLinks: false,
+                    hideImages: false,
+                    readingGuide: false,
+                    dyslexiaFont: false,
+                    animations: true
+                };
+
+                document.documentElement.style.fontSize = '100%';
+                document.body.className = document.body.className.replace(/a11y-[^\s]*/g, '');
+                
+                document.getElementById('font-size-display').textContent = '100%';
+                document.querySelectorAll('.a11y-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                document.querySelector('[data-value="normal"]').classList.add('active');
+            }
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => new AccessibilityWidget());
+        } else {
+            new AccessibilityWidget();
+        }
+    </script> -->
+</body>
+</html>

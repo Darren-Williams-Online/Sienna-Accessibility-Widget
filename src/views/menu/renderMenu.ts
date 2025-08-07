@@ -6,6 +6,7 @@ import ContentButtons from "./ContentButtons";
 import ToolButtons from "../../enum/TOOL_PRESETS";
 
 import renderButtons from "./renderButtons";
+import renderSelectElements from "./renderSelectElements";
 import adjustFontSize from "../../tools/adjustFontSize";
 import renderTools from "./renderTools";
 import reset from "./reset";
@@ -31,7 +32,7 @@ export default function renderMenu() {
         $menu.style.left = 'auto';
     }
 
-    $menu.querySelector(".content").innerHTML = renderButtons(ContentButtons);
+    $menu.querySelector(".content").innerHTML = renderSelectElements(ContentButtons) + renderButtons(ContentButtons);
     $menu.querySelector(".tools").innerHTML = renderButtons(ToolButtons, 'asw-tools');
     $menu.querySelector(".contrast").innerHTML = renderButtons(FilterButtons, 'asw-filter');
 
@@ -98,6 +99,23 @@ export default function renderMenu() {
             adjustFontSize(fontSize);
             userSettings.states.fontSize = fontSize;
 
+            saveUserSettings();
+        });
+    });
+
+    // Handle select dropdowns
+    $menu.querySelectorAll(".asw-select[data-key]").forEach((el: HTMLSelectElement) => {
+        const key = el.dataset.key;
+        
+        // Set initial value
+        if (userSettings.states[key]) {
+            el.value = userSettings.states[key];
+        }
+        
+        el.addEventListener("change", () => {
+            const value = el.value;
+            userSettings.states[key] = value === 'default' ? false : value;
+            renderTools();
             saveUserSettings();
         });
     });

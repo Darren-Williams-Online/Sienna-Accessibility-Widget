@@ -3,6 +3,8 @@ import template from "./widget.html";
 import css from "./widget.css";
 import { openMenu } from "../menu/menu";
 import translateWidget from "../menu/translateWidget";
+import { getWidgetPosition } from "@/utils/getWidgetPosition";
+import { getWidgetSize } from "@/utils/getWidgetSize";
 
 import {
     pluginConfig
@@ -17,6 +19,10 @@ export function renderWidget() {
 
     const $btn: HTMLElement = $widget.querySelector(".asw-menu-btn");
     Object.assign($btn.style, getButtonStyle());
+    
+    // Apply size from script tag
+    const widgetSize = getWidgetSize();
+    Object.assign($btn.style, widgetSize);
     
     $btn?.addEventListener("click", (event) => {
         event.preventDefault();
@@ -34,6 +40,15 @@ export function renderWidget() {
 }
 
 function getButtonStyle() {
+    // First try to get position from script tag
+    const scriptPosition = getWidgetPosition();
+    
+    // If script position found, use it
+    if (scriptPosition && Object.keys(scriptPosition).length > 0) {
+        return scriptPosition;
+    }
+    
+    // Fallback to plugin config
     const {
         position = "bottom-left",
         offset = [20, 20]
