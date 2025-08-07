@@ -158,6 +158,24 @@ src/
 
 ---
 
+## 🐛 Bug Fixes
+
+### 13. Menu Overlay Persistence Bug
+**Files Modified:** `src/views/menu/toggleMenu.ts`
+**Issue**: Animation trigger system caused overlay element to remain visible after menu closure
+
+- **Problem**: The `asw-overlay` element was not properly synchronized with menu visibility state
+- **Root Cause**: Animation implementation using CSS classes didn't account for overlay display management
+- **Solution**: Enhanced toggleMenu function to explicitly control overlay visibility
+- **Implementation**: 
+  - Added overlay element detection in toggle function
+  - Synchronized overlay `display` property with menu `asw-hidden` class state
+  - Maintained backward compatibility for initial menu creation
+- **Result**: Overlay now properly hides when menu closes and shows when menu opens
+- **Testing**: Verified both initial menu opening and subsequent toggle operations work correctly
+
+---
+
 ## 🆕 Latest Updates (Recent Session)
 
 ### 10. Hide Images Feature
